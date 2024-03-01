@@ -2,18 +2,20 @@ Sorting Program ReadMe
 
 Installation Instructions:
 
-1.	Download the sorting program files from GitHub or BrightSpace submission.
+1.	Ensure that you have Java JDK 8 or higher installed on your system.
 
-2.	Extract files from A1TeamSidon.zip file to your desired location.
+2.	Download the sorting program files from GitHub or BrightSpace submission.
 
-3.	Open a command prompt/terminal window and navigate to the res folder 
+3.	Extract files from A1TeamSidon.zip file to your desired location and import
+	into Eclipse IDE.
+
+4.	Open a command prompt/terminal window and navigate to the res folder 
 	directory where the Sort.jar file is located. 'shapes1.txt', 'shapes2.txt',
 	'shapes3.txt', or 'shapesBig.txt' files need to be in the same res folder
 	for the commands to execute from the command-line.
-   
-4.	Ensure that you have Java JDK 8 or higher installed on your system.
 
 Usage Instructions:
+
 1.	To run the sorting program, execute the following command: 
 	
 		java -jar Sort.jar -f[fileName] -t[compareType] -s[sortType]

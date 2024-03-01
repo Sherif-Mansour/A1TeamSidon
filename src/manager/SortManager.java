@@ -36,66 +36,6 @@ public class SortManager
     }
 	
 	/**
-     * Benchmarks and performs sorting of shapes based on the chosen sorting algorithm.
-     * Prints the time taken for sorting using the selected algorithm.
-     */
-	private void benchmarkAndSort() {
-        long startTime, endTime, duration;
-        System.out.println("Benchmarking sorting algorithms:");
-
-        startTime = System.currentTimeMillis();
-        switch (sortType) {
-            case 'b':
-                Sort.bubbleSort(shapes, getComparator());
-                break;
-            case 'i':
-                Sort.insertionSort(shapes, getComparator());
-                break;
-            case 's':
-                Sort.selectionSort(shapes, getComparator());
-                break;
-            case 'm':
-                Sort.mergeSort(shapes, getComparator());
-                break;
-            case 'q':
-                Sort.quickSort(shapes, getComparator());
-                break;
-            case 'z':
-                Sort.heapSort(shapes, getComparator());
-                break;
-            default:
-                System.out.println("Invalid sort type.");
-                return;
-        }
-        endTime = System.currentTimeMillis();
-        duration = endTime - startTime;
-        System.out.println("Time taken for " + getSortAlgorithmName() + ": " + duration + " milliseconds");
-    }
-
-	/**
-     * Retrieves the name of the sorting algorithm based on the selected sort type.
-     * @return The name of the selected sorting algorithm.
-     */
-	private String getSortAlgorithmName() {
-        switch (sortType) {
-            case 'b':
-                return "Bubble Sort";
-            case 'i':
-                return "Insertion Sort";
-            case 's':
-                return "Selection Sort";
-            case 'm':
-                return "Merge Sort";
-            case 'q':
-                return "Quick Sort";
-            case 'z':
-                return "Heap Sort";
-            default:
-                return "Unknown Sort Algorithm";
-        }
-    }
-	
-	/**
      * Parses the command-line arguments and sets the file name, sort type, and compare type.
      * Prints error messages if any argument is missing or invalid.
      * @param args The array of command-line arguments.
@@ -228,6 +168,66 @@ public class SortManager
 	        return null;
 	    }
 	}
+    
+	/**
+     * Benchmarks and performs sorting of shapes based on the chosen sorting algorithm.
+     * Prints the time taken for sorting using the selected algorithm.
+     */
+	private void benchmarkAndSort() {
+        long startTime, endTime, duration;
+        System.out.println("Benchmarking sorting algorithms:");
+
+        startTime = System.currentTimeMillis();
+        switch (sortType) {
+            case 'b':
+                Sort.bubbleSort(shapes, getComparator());
+                break;
+            case 'i':
+                Sort.insertionSort(shapes, getComparator());
+                break;
+            case 's':
+                Sort.selectionSort(shapes, getComparator());
+                break;
+            case 'm':
+                Sort.mergeSort(shapes, getComparator());
+                break;
+            case 'q':
+                Sort.quickSort(shapes, getComparator());
+                break;
+            case 'z':
+                Sort.heapSort(shapes, getComparator());
+                break;
+            default:
+                System.out.println("Invalid sort type.");
+                return;
+        }
+        endTime = System.currentTimeMillis();
+        duration = endTime - startTime;
+        System.out.println("Time taken for " + getSortAlgorithmName() + ": " + duration + " milliseconds");
+    }
+
+	/**
+     * Retrieves the name of the sorting algorithm based on the selected sort type.
+     * @return The name of the selected sorting algorithm.
+     */
+	private String getSortAlgorithmName() {
+        switch (sortType) {
+            case 'b':
+                return "Bubble Sort";
+            case 'i':
+                return "Insertion Sort";
+            case 's':
+                return "Selection Sort";
+            case 'm':
+                return "Merge Sort";
+            case 'q':
+                return "Quick Sort";
+            case 'z':
+                return "Heap Sort";
+            default:
+                return "Unknown Sort Algorithm";
+        }
+    }
 	
 	/**
      * Prints the sorted shapes according to the specified format.
@@ -238,21 +238,18 @@ public class SortManager
 	    if (shapes != null && shapes.length > 0) {
 	        System.out.println("Sorted Shapes:");
 
-	        // Print the first sorted value
 	        System.out.println("First sorted value    : " + shapes[0]);
 
-	        // Print every thousandth value in between
 	        for (int i = 1000; i < shapes.length; i += 1000) {
 	            System.out.println("Every thousandth value: " + shapes[i]);
 	        }
 
-	        // Print the last sorted value
 	        System.out.println("Last sorted value     : " + shapes[shapes.length - 1]);
 
-	        // Print all sorted shapes
-//	        for (int i = 0; i < shapes.length; i++) {
-//	            System.out.println(shapes[i]);
-//	        }
+	        // Uncomment to print all sorted shapes
+	        // for (int i = 0; i < shapes.length; i++) {
+	        //     System.out.println(shapes[i]);
+	        // }
 	    }
 	}
 
@@ -262,12 +259,12 @@ public class SortManager
      */
 	private Comparator<_03Shape> getComparator() {
 		switch (compareType) {
-			case 'v':
-				return new shape._02VolumeComparator();
 			case 'h':
 				return Comparator.naturalOrder();
 			case 'a':
 				return new shape._01BaseAreaComparator();
+			case 'v':
+				return new shape._02VolumeComparator();
 			default:
 				return null;
 		}

@@ -1,0 +1,71 @@
+Heap Sort Algorithm Description:
+
+Heap Sort is like organizing a set of numbered cards in ascending or descending order by
+repeatedly arranging the cards based on their values. It involves using a special structure
+called heap, which helps in efficiently finding the highest or lowest card and placing it 
+in the right position.
+
+Steps of the Algorithm:
+
+1.	Heapify the Array: Imagine we have a bunch of numbered cards randomly scattered on a 
+	table. We start arranging them in a special way so that every parent card has a higher 
+	value than its child cards. This arrangement is called a heap.
+
+2.	Extract Max/Min Element and Adjust Heap: We keep picking the highest card (or lowest, 
+	depending on what we're aiming for) from the heap and placing it at the end. After 
+	each extraction, we adjust the remaining cards to maintain the heap property.
+
+3.	Repeat until Sorted: We continue this process until all cards are sorted from smallest
+	to largest (or largest to smallest) in our array.
+
+Pseudocode:
+	
+	HeapSort(array):
+	    BuildMaxHeap(array)
+	    n = length(array)
+	    for i from n-1 to 1:
+	        Swap(array[0], array[i])
+	        Heapify(array, 0, i)
+	
+	BuildMaxHeap(array):
+	    n = length(array)
+	    for i from n/2 - 1 down to 0:
+	        Heapify(array, i, n)
+	    
+	Heapify(array, index, heapSize):
+	    largest = index
+	    leftChild = 2 * index + 1
+	    rightChild = 2 * index + 2
+	    if leftChild < heapSize and array[leftChild] > array[largest]:
+	        largest = leftChild
+	    if rightChild < heapSize and array[rightChild] > array[largest]:
+	        largest = rightChild
+	    if largest != index:
+	        Swap(array[index], array[largest])
+	        Heapify(array, largest, heapSize)
+
+	
+Complexity Analysis:
+	
+	Time Complexity:
+	
+	-	Worst, Average, and Best Case: O(n log n)
+	
+	Space Complexity:
+	
+	-	O(1) - Heap Sort doesn't need extra space proportional to the input size.
+	
+	Counting Analysis:
+	
+	-	Building Max Heap: O(n)
+	-	Heapify Operation: O(log n) per element
+	-	Total Operations: O(n log n)
+	
+	The counting analysis considers the number of comparisons and swaps performed during 
+	each step of the algorithm. In the worst-case scenario, both building the max heap and 
+	heapifying each element require O(n log n) operations, resulting in a total time 
+	complexity of O(n log n).
+
+This analysis demonstrates that Heap Sort is an efficient sorting algorithm, particularly 
+suitable for large datasets, due to its O(n log n) time complexity and in-place sorting 
+nature.

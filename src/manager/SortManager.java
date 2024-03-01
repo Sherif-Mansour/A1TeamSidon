@@ -255,13 +255,13 @@ public class SortManager
 	    if (shapes != null && shapes.length > 0) {
 	        System.out.println("Sorted Shapes:");
 
-	        System.out.println("First sorted value    : " + shapes[0]);
+	        System.out.println("First sorted value: " + shapes[0]);
 
-	        for (int i = 1000; i < shapes.length; i += 1000) {
-	            System.out.println("Every thousandth value: " + shapes[i]);
+	        for (int i = 999; i < shapes.length - 1; i += 1000) {
+	            System.out.println("Value @ " + (i + 1) + "    : " + shapes[i]);
 	        }
 
-	        System.out.println("Last sorted value     : " + shapes[shapes.length - 1]);
+	        System.out.println("Last sorted value : " + shapes[shapes.length - 1]);
 
 	        // Uncomment to print all sorted shapes
 	        // for (int i = 0; i < shapes.length; i++) {

@@ -59,6 +59,6 @@ Usage Instructions:
 			
 			Run Configurations>Arguments>Program Arguments
 	
-	-	Apply the chosen program arguments as follows: 
+	-	Apply the chosen program arguments similar to following example: 
 			
 			-fres/shapes1.txt -ta -sb

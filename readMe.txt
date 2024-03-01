@@ -7,7 +7,7 @@ Installation Instructions:
 2.	Download the sorting program files from GitHub or BrightSpace submission.
 
 3.	Extract files from A1TeamSidon.zip file to your desired location and import
-	into Eclipse IDE.
+	into your worksapce using Eclipse IDE.
 
 4.	Open a command prompt/terminal window and navigate to the res folder 
 	directory where the Sort.jar file is located. 'shapes1.txt', 'shapes2.txt',

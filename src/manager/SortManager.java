@@ -34,7 +34,24 @@ public class SortManager
 			printSortedShapes();
 		}
     }
-	
+
+	/**
+     * Retrieves the comparator object based on the comparison type.
+     * @return The comparator object used for sorting shapes.
+     */
+	private Comparator<_03Shape> getComparator() {
+		switch (compareType) {
+			case 'h':
+				return Comparator.naturalOrder();
+			case 'a':
+				return new shape._01BaseAreaComparator();
+			case 'v':
+				return new shape._02VolumeComparator();
+			default:
+				return null;
+		}
+	}
+		
 	/**
      * Parses the command-line arguments and sets the file name, sort type, and compare type.
      * Prints error messages if any argument is missing or invalid.
@@ -251,22 +268,5 @@ public class SortManager
 	        //     System.out.println(shapes[i]);
 	        // }
 	    }
-	}
-
-	/**
-     * Retrieves the comparator object based on the comparison type.
-     * @return The comparator object used for sorting shapes.
-     */
-	private Comparator<_03Shape> getComparator() {
-		switch (compareType) {
-			case 'h':
-				return Comparator.naturalOrder();
-			case 'a':
-				return new shape._01BaseAreaComparator();
-			case 'v':
-				return new shape._02VolumeComparator();
-			default:
-				return null;
-		}
 	}
 }

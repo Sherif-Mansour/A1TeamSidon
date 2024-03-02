@@ -42,18 +42,23 @@ public abstract class _03Shape implements Comparable<_03Shape>
 	}
 	
 	/**
-	 * Compares this shape with another shape based on their heights.
+	 * Compares the height of a Shape with the height of another Shape for ordering.
 	 * 
-	 * @param other 	The other shape to compare.
-	 * @return 			A negative integer, zero, or a positive integer as this 
-	 * 					shape is less than, equal to, or greater than the other.
+	 * @param other 	The other height of the shape to compare.
+	 * @return 			A negative integer, zero, or a positive integer indicating whether the 
+	 * 					height of this shape is less than, equal to, or greater than the height 
+	 * 					of the other shape, respectively.
 	 */
 	@Override
 	public int compareTo(_03Shape other)
 	{
-		if (this.height > other.height) return 1;
-		if (this.height < other.height) return -1;
-		return 0;
+		if (this.height < other.height) {
+	        return 1;
+	    } else if (this.height > other.height) {
+	        return -1;
+	    } else {
+	        return 0;
+	    }
 	}
 	
 	/**

@@ -36,13 +36,11 @@ public class SortManager
     }
 
 	/**
-     * Retrieves the comparator object based on the comparison type.
+     * Retrieves the comparator object based on the comparison type of area or volume. 
      * @return The comparator object used for sorting shapes.
      */
 	private Comparator<_03Shape> getComparator() {
 		switch (compareType) {
-			case 'h':
-				return Comparator.naturalOrder();
 			case 'a':
 				return new shape._01BaseAreaComparator();
 			case 'v':
@@ -189,6 +187,9 @@ public class SortManager
 	/**
      * Benchmarks and performs sorting of shapes based on the chosen sorting algorithm.
      * Prints the time taken for sorting using the selected algorithm.
+     * If the comparison type is 'h', the sorting algorithms are performed using natural ordering
+     * based on shape height; otherwise, the sorting algorithms use custom comparators for
+     * comparing shapes by base area or volume.
      */
 	private void benchmarkAndSort() {
         long startTime, endTime, duration;
@@ -196,27 +197,33 @@ public class SortManager
 
         startTime = System.currentTimeMillis();
         switch (sortType) {
-            case 'b':
-                Sort.bubbleSort(shapes, getComparator());
-                break;
-            case 'i':
-                Sort.insertionSort(shapes, getComparator());
-                break;
-            case 's':
-                Sort.selectionSort(shapes, getComparator());
-                break;
-            case 'm':
-                Sort.mergeSort(shapes, getComparator());
-                break;
-            case 'q':
-                Sort.quickSort(shapes, getComparator());
-                break;
-            case 'z':
-                Sort.heapSort(shapes, getComparator());
-                break;
-            default:
-                System.out.println("Invalid sort type.");
-                return;
+	        case 'b':
+	            if (compareType == 'h') Sort.bubbleSort(shapes); 
+	            else Sort.bubbleSort(shapes, getComparator()); 
+	            break;
+	        case 'i':
+	            if (compareType == 'h') Sort.insertionSort(shapes); 
+	            else Sort.insertionSort(shapes, getComparator());
+	            break;
+	        case 's':
+	            if (compareType == 'h') Sort.selectionSort(shapes);
+	            else Sort.selectionSort(shapes, getComparator());
+	            break;
+	        case 'm':
+	            if (compareType == 'h') Sort.mergeSort(shapes);
+	            else Sort.mergeSort(shapes, getComparator());
+	            break;
+	        case 'q':
+	            if (compareType == 'h') Sort.quickSort(shapes);
+	            else Sort.quickSort(shapes, getComparator());
+	            break;
+	        case 'z':
+	            if (compareType == 'h') Sort.heapSort(shapes);
+	            else Sort.heapSort(shapes, getComparator());
+	            break;
+	        default:
+	            System.out.println("Invalid sort type.");
+	            return;
         }
         endTime = System.currentTimeMillis();
         duration = endTime - startTime;
@@ -263,7 +270,7 @@ public class SortManager
 
 	        System.out.println("Last sorted value : " + shapes[shapes.length - 1]);
 
-	        // Uncomment to print all sorted shapes
+	        // Uncomment the following to print all sorted shapes
 	        // for (int i = 0; i < shapes.length; i++) {
 	        //     System.out.println(shapes[i]);
 	        // }

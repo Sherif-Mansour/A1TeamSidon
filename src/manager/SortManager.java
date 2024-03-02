@@ -36,21 +36,6 @@ public class SortManager
     }
 
 	/**
-     * Retrieves the comparator object based on the comparison type of area or volume. 
-     * @return The comparator object used for sorting shapes.
-     */
-	private Comparator<_03Shape> getComparator() {
-		switch (compareType) {
-			case 'a':
-				return new shape._01BaseAreaComparator();
-			case 'v':
-				return new shape._02VolumeComparator();
-			default:
-				return null;
-		}
-	}
-		
-	/**
      * Parses the command-line arguments and sets the file name, sort type, and compare type.
      * Prints error messages if any argument is missing or invalid.
      * @param args The array of command-line arguments.
@@ -229,6 +214,21 @@ public class SortManager
         duration = endTime - startTime;
         System.out.println("Time taken for " + getSortAlgorithmName() + ": " + duration + " milliseconds");
     }
+	
+	/**
+     * Retrieves the comparator object based on the comparison type of area or volume. 
+     * @return The comparator object used for sorting shapes.
+     */
+	private Comparator<_03Shape> getComparator() {
+		switch (compareType) {
+			case 'a':
+				return new shape._01BaseAreaComparator();
+			case 'v':
+				return new shape._02VolumeComparator();
+			default:
+				return null;
+		}
+	}
 
 	/**
      * Retrieves the name of the sorting algorithm based on the selected sort type.

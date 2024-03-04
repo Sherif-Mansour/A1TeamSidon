@@ -265,14 +265,14 @@ public class SortManager
 	        System.out.println("First sorted value: " + shapes[0]);
 
 	        for (int i = 999; i < shapes.length - 1; i += 1000) {
-	            System.out.println("Value @ " + (i + 1) + "    : " + shapes[i]);
+	        	System.out.printf("Value @ %-10d: %s%n", (i + 1), shapes[i]);
 	        }
 
 	        System.out.println("Last sorted value : " + shapes[shapes.length - 1]);
 
 	        // Uncomment the following to print all sorted shapes
 	        // for (int i = 0; i < shapes.length; i++) {
-	        //     System.out.println(shapes[i]);
+	        //	System.out.println(shapes[i]);
 	        // }
 	    }
 	}

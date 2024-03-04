@@ -10,7 +10,6 @@ import manager.SortManager;
  */
 public class AppDriver
 {
-
 	/**
      * The main method of the application.
      * It creates a SortManager object with the provided command-line arguments.
@@ -21,5 +20,4 @@ public class AppDriver
 	{
 		new SortManager(args);
 	}
-
 }

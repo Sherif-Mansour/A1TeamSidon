@@ -40,7 +40,7 @@ public class _10PentagonalPrism extends _07Prism
      */
 	@Override
 	public String toString() {
-	    return String.format("%-15s :  Side   = %15.2f  ||  Height = %15.2f  ||  Area = %20.2f  ||  Volume = %25.2f",
+	    return String.format("%-15s : Side   = %8.2f  ||  Height = %8.2f  ||  Area = %13.2f  ||  Volume = %18.2f",
 	            "PentagonalPrism", getSide(), getHeight(), calcBaseArea(), calcVolume());
 	}
 	

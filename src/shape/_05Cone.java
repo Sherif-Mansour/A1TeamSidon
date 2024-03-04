@@ -72,7 +72,7 @@ public class _05Cone extends _03Shape
      */
 	@Override
 	public String toString() {
-	    return String.format("%-15s :  Radius = %15.2f  ||  Height = %15.2f  ||  Area = %20.2f  ||  Volume = %25.2f",
+	    return String.format("%-15s : Radius = %8.2f  ||  Height = %8.2f  ||  Area = %13.2f  ||  Volume = %18.2f",
 	            "Cone", getRadius(), getHeight(), calcBaseArea(), calcVolume());
 	}
 }
